@@ -25,7 +25,7 @@ $mod_strings = array(
 	'refamenaza' => 'Refamenaza',
 	'catamenaza' => 'Catamenaza',
 	'tipomenaza' => 'Tipomenaza',
-	'catalogoriesgos' => 'Catalogoriesgos',
+	'catalogoriesgos_no' => 'Catalogoriesgos No',
 	'refcontrol' => 'Refcontrol',
 );
 ?>

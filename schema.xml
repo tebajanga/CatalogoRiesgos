@@ -1,0 +1,29 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_catalogoriesgos</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_catalogoriesgos` (
+  `catalogoriesgosid` int(11) NOT NULL,
+  `descriesgo` text default NULL,
+  `refriesgo` varchar(25) default NULL,
+  `catriesgo` varchar(125) default NULL,
+  `tiporiesgo` varchar(125) default NULL,
+  `descamenaza` text default NULL,
+  `refamenaza` varchar(25) default NULL,
+  `catamenaza` varchar(125) default NULL,
+  `tipoamenaza` varchar(125) default NULL,
+  `catalogoriesgos_no` varchar(50) default NULL,
+  `refcontrol` varchar(250) default NULL,
+  PRIMARY KEY (`catalogoriesgosid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vtiger_catalogoriesgoscf</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_catalogoriesgoscf` (
+  `catalogoriesgosid` int(11) NOT NULL,
+  PRIMARY KEY (`catalogoriesgosid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+	</tables>
+</schema>
