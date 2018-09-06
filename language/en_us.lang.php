@@ -9,14 +9,23 @@
  ************************************************************************************/
 
 $mod_strings = array(
-	'ModuleName' => 'Module Name',
-	'SINGLE_ModuleName' => 'Module Name',
-	'ModuleName ID' => 'Module Name ID',
+	'CatalogoRiesgos' => 'CatalogoRiesgos',
+	'SINGLE_CatalogoRiesgos' => 'CatalogoRiesgos',
+	'CatalogoRiesgos ID' => 'CatalogoRiesgos ID',
 
 	'LBL_CUSTOM_INFORMATION' => 'Custom Information',
-	'LBL_MODULEBLOCK_INFORMATION' => 'ModuleBlock Information',
+	'LBL_MODULEBLOCK_INFORMATION' => 'CatalogoRiesgos Information',
 	'LBL_DESCRIPTION_INFORMATION' => 'Description',
 
-	'ModuleFieldLabel' => 'ModuleFieldLabel Text',
+	'descriesgo' => 'Descriesgo',
+	'refriesgo' => 'Refriesgo',
+	'catriesgo' => 'Catriesgo',
+	'tiporiesgo' => 'Tiporiesgo',
+	'descamenaza' => 'Descamenaza',
+	'refamenaza' => 'Refamenaza',
+	'catamenaza' => 'Catamenaza',
+	'tipomenaza' => 'Tipomenaza',
+	'catalogoriesgos' => 'Catalogoriesgos',
+	'refcontrol' => 'Refcontrol',
 );
 ?>

@@ -1,46 +1,295 @@
 <?xml version='1.0'?>
 <module>
-<name>ModuleClass</name>
-<label>ModuleClass</label>
+<name>CatalogoRiesgos</name>
+<label>CatalogoRiesgos</label>
 <parent>Marketing</parent>
 <version>1.0</version>
-<short_description>Module description.</short_description>
+<short_description>CatalogoRiesgos.</short_description>
 <dependencies>
 <vtiger_version>5.4.0</vtiger_version>
 <vtiger_max_version>5.*</vtiger_max_version>
 </dependencies>
 <license>
-<inline><![CDATA[Your license here]]></inline>
+<inline><![CDATA[
+/*************************************************************************************************
+ * Copyright 2015 JPL TSolucio, S.L. -- This file is a part of TSOLUCIO coreBOS customizations.
+ * You can copy, adapt and distribute the work under the "Attribution-NonCommercial-ShareAlike"
+ * Vizsage Public License (the "License"). You may not use this file except in compliance with the
+ * License. Roughly speaking, non-commercial users may share and modify this code, but must give credit
+ * and share improvements. However, for proper details please read the full License, available at
+ * http://vizsage.com/license/Vizsage-License-BY-NC-SA.html and the handy reference for understanding
+ * the full license at http://vizsage.com/license/Vizsage-Deed-BY-NC-SA.html. Unless required by
+ * applicable law or agreed to in writing, any software distributed under the License is distributed
+ * on an  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and limitations under the
+ * License terms of Creative Commons Attribution-NonCommercial-ShareAlike 3.0 (the License).
+ *************************************************************************************************
+ *  Module       : CatalogoRiesgos module.
+ *  Version      : 1.0
+ *  Author       : JPL TSolucio, S. L.
+ *************************************************************************************************/
+]]></inline>
 </license>
 <tables>
 <table>
-<name>vtiger_moduleclass</name>
-<sql><![CDATA[CREATE TABLE `vtiger_moduleclass` (
-  `moduleclassid` int(11) NOT NULL,
-  `moduleclass_no` varchar(56) default NULL,
-  ..rest of fields..
-  PRIMARY KEY (`moduleclassid`)
+<name>vtiger_catalogoriesgos</name>
+<sql><![CDATA[CREATE TABLE `vtiger_catalogoriesgos` (
+  `catalogoriesgosid` int(11) NOT NULL,
+  `descriesgo` text default NULL,
+  `refriesgo` varchar(25) default NULL,
+  `catriesgo` varchar(125) default NULL,
+  `tiporiesgo` varchar(125) default NULL,
+  `descamenaza` text default NULL,
+  `refamenaza` varchar(25) default NULL,
+  `catamenaza` varchar(125) default NULL,
+  `tipoamenaza` varchar(125) default NULL,
+  `catalogoriesgos_no` varchar(50) default NULL,
+  `refcontrol` varchar(250) default NULL,
+  PRIMARY KEY (`catalogoriesgosid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
 </table>
 <table>
-<name>vtiger_moduleclasscf</name>
-<sql><![CDATA[CREATE TABLE `vtiger_moduleclasscf` (
-  `moduleclassid` int(11) NOT NULL,
-  PRIMARY KEY (`moduleclassid`)
+<name>vtiger_catalogoriesgoscf</name>
+<sql><![CDATA[CREATE TABLE `vtiger_catalogoriesgoscf` (
+  `catalogoriesgosid` int(11) NOT NULL,
+  PRIMARY KEY (`catalogoriesgosid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
 </table>
 </tables>
 <blocks>
 <block>
-<label>LBL_MODULEBLOCK_INFORMATION</label>
+<label>Riesgo</label>
 <fields>
 <field>
-<fieldname>moduleclass_no</fieldname>
-<uitype>4</uitype>
-<columnname>moduleclass_no</columnname>
-<tablename>vtiger_moduleclass</tablename>
+<fieldname>descriesgo</fieldname>
+<uitype>19</uitype>
+<columnname>descriesgo</columnname>
+<tablename>vtiger_catalogoriesgos</tablename>
 <generatedtype>1</generatedtype>
-<fieldlabel>moduleclass_no</fieldlabel>
+<fieldlabel>descriesgo</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>1</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>1</quickcreate>
+<quickcreatesequence>10</quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>1</masseditable>
+</field>
+<field>
+<fieldname>refriesgo</fieldname>
+<uitype>1</uitype>
+<columnname>refriesgo</columnname>
+<tablename>vtiger_catalogoriesgos</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>refriesgo</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>2</sequence>
+<maximumlength>25</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>1</quickcreate>
+<quickcreatesequence>10</quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>1</masseditable>
+</field>
+<field>
+<fieldname>catriesgo</fieldname>
+<uitype>15</uitype>
+<columnname>catriesgo</columnname>
+<tablename>vtiger_catalogoriesgos</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>catriesgo</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>3</sequence>
+<maximumlength>125</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>1</quickcreate>
+<quickcreatesequence>10</quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>1</masseditable>
+<picklistvalues>
+<picklistvalue>Generales</picklistvalue>
+<picklistvalue>Transparencia de los tratamientos</picklistvalue>
+<picklistvalue>Seguridad</picklistvalue>
+<picklistvalue>Notificación y registro de las actividades de tratamiento</picklistvalue>
+<picklistvalue>Derecho de los interesados</picklistvalue>
+<picklistvalue>Transferencias internacionales</picklistvalue>
+<picklistvalue>Tratamientos por encargo</picklistvalue>
+<picklistvalue>Falta de legitimidad de los tratamientos y cesiones de datos personales</picklistvalue>
+<picklistvalue>Deber de secreto</picklistvalue>
+<picklistvalue>Acceso ilegítimo a los datos</picklistvalue>
+<picklistvalue>Categorías especiales de datos</picklistvalue>
+<picklistvalue>Pérdida o modificación de Datos personales</picklistvalue>
+<picklistvalue>Calidad de los datos</picklistvalue>
+<picklistvalue>Violación de los derechos y libertades del Interesado</picklistvalue>
+</picklistvalues>
+</field>
+<field>
+<fieldname>tiporiesgo</fieldname>
+<uitype>15</uitype>
+<columnname>tiporiesgo</columnname>
+<tablename>vtiger_catalogoriesgos</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>tiporiesgo</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>4</sequence>
+<maximumlength>125</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>1</quickcreate>
+<quickcreatesequence>10</quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>1</masseditable>
+<picklistvalues>
+  <picklistvalue>Acceso ilegitimo</picklistvalue>
+</picklistvalues>
+</field>
+</fields>
+</block>
+<block>
+<label>Amenaza</label>
+<fields>
+<field>
+<fieldname>descamenaza</fieldname>
+<uitype>19</uitype>
+<columnname>descamenaza</columnname>
+<tablename>vtiger_catalogoriesgos</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>descamenaza</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>1</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>1</quickcreate>
+<quickcreatesequence>10</quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>1</masseditable>
+</field>
+<field>
+<fieldname>refamenaza</fieldname>
+<uitype>1</uitype>
+<columnname>refamenaza</columnname>
+<tablename>vtiger_catalogoriesgos</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>refamenaza</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>2</sequence>
+<maximumlength>25</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>1</quickcreate>
+<quickcreatesequence>10</quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>1</masseditable>
+</field>
+<field>
+<fieldname>catamenaza</fieldname>
+<uitype>15</uitype>
+<columnname>catamenaza</columnname>
+<tablename>vtiger_catalogoriesgos</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>catamenaza</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>3</sequence>
+<maximumlength>125</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>1</quickcreate>
+<quickcreatesequence>10</quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>1</masseditable>
+<picklistvalues>
+<picklistvalue>Errores y fallos</picklistvalue>
+<picklistvalue>Desastres naturales o ataque intencionado</picklistvalue>
+<picklistvalue>Ataques intencionados</picklistvalue>
+<picklistvalue>Incumplimiento normativo</picklistvalue>
+<picklistvalue>Incumplimiento de las medidas de seguridad</picklistvalue>
+</picklistvalues>
+</field>
+<field>
+<fieldname>tipoamenaza</fieldname>
+<uitype>15</uitype>
+<columnname>tipoamenaza</columnname>
+<tablename>vtiger_catalogoriesgos</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>tipoamenaza</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>4</sequence>
+<maximumlength>125</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>1</quickcreate>
+<quickcreatesequence>10</quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>1</masseditable>
+<picklistvalues>
+<picklistvalue>Incumplimiento del deber de informar y acceso ilegítimo a datos personales</picklistvalue>
+<picklistvalue>Modificación no autorizada de los datos o integridad</picklistvalue>
+<picklistvalue>Acceso ilegítimo a los datos</picklistvalue>
+<picklistvalue>Deber Informar</picklistvalue>
+<picklistvalue>Afecciones a la confidencialidad, integridad y disponibilidad de los datos.</picklistvalue>
+<picklistvalue>Ausencia de base legitimadora del tratamiento</picklistvalue>
+<picklistvalue>Incumplimiento del deber de informar</picklistvalue>
+<picklistvalue>Gestión deficiente de la privacidad</picklistvalue>
+<picklistvalue>Acceso ilegítimo a los datos o confidencialidad</picklistvalue>
+<picklistvalue>Acceso ilegítimo o indisponibilidad/pérdida de información</picklistvalue>
+<picklistvalue>Imposibilidad de ejercitar derechos</picklistvalue>
+<picklistvalue>Uso de tecnologías inmaduras</picklistvalue>
+<picklistvalue>Indisponibilidad o pérdida de información</picklistvalue>
+<picklistvalue>Indisponibilidad de los datos</picklistvalue>
+<picklistvalue>Eliminación de los datos o disponibilidad</picklistvalue>
+<picklistvalue>Decisiones basadas en tratamientos de datos excesivos</picklistvalue>
+<picklistvalue>Suplantación de la identidad del usuario</picklistvalue>
+<picklistvalue>Indisponibilidad o acceso ilegítimo a los datos</picklistvalue>
+<picklistvalue>Daño socio-economicos</picklistvalue>
+<picklistvalue>Tratamientos no autorizados o sin medidas adecuadas</picklistvalue>
+<picklistvalue>Acceso no autorizado</picklistvalue>
+<picklistvalue>Falta de legitimación para el tratamiento</picklistvalue>
+<picklistvalue>Daño reputacional</picklistvalue>
+<picklistvalue>Tratamientos no autorizados</picklistvalue>
+<picklistvalue>Incumplimiento normativo</picklistvalue>
+</picklistvalues>
+</field>
+</fields>
+</block>
+<block>
+<label>LBL_CATALOGORIESGOS_INFORMATION</label>
+<fields>
+<field>
+<fieldname>catalogoriesgos_no</fieldname>
+<uitype>4</uitype>
+<columnname>catalogoriesgos_no</columnname>
+<tablename>vtiger_catalogoriesgos</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>catalogoriesgos_no</fieldlabel>
 <readonly>1</readonly>
 <presence>0</presence>
 <selected>0</selected>
@@ -54,12 +303,9 @@
 <helpinfo><![CDATA[]]></helpinfo>
 <masseditable>0</masseditable>
 <entityidentifier>
-<entityidfield>moduleclassid</entityidfield>
-<entityidcolumn>moduleclassid</entityidcolumn>
+<entityidfield>catalogoriesgosid</entityidfield>
+<entityidcolumn>catalogoriesgosid</entityidcolumn>
 </entityidentifier>
-</field>
-<field>
-.. rest of fields ..
 </field>
 <field>
 <fieldname>assigned_user_id</fieldname>
@@ -71,7 +317,7 @@
 <readonly>1</readonly>
 <presence>0</presence>
 <selected>0</selected>
-<sequence>10</sequence>
+<sequence>2</sequence>
 <maximumlength>100</maximumlength>
 <typeofdata>V~M</typeofdata>
 <quickcreate>1</quickcreate>
@@ -80,6 +326,26 @@
 <info_type>BAS</info_type>
 <helpinfo><![CDATA[]]></helpinfo>
 <masseditable>1</masseditable>
+</field>
+<field>
+<fieldname>refcontrol</fieldname>
+<uitype>1</uitype>
+<columnname>refcontrol</columnname>
+<tablename>vtiger_catalogoriesgos</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>refcontrol</fieldlabel>
+<readonly>1</readonly>
+<presence>0</presence>
+<selected>0</selected>
+<sequence>3</sequence>
+<maximumlength>25</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>0</quickcreate>
+<quickcreatesequence>0</quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
 </field>
 <field>
 <fieldname>created_user_id</fieldname>
@@ -91,7 +357,7 @@
 <readonly>1</readonly>
 <presence>0</presence>
 <selected>0</selected>
-<sequence>11</sequence>
+<sequence>4</sequence>
 <maximumlength>100</maximumlength>
 <typeofdata>V~O</typeofdata>
 <quickcreate>3</quickcreate>
@@ -111,7 +377,7 @@
 <readonly>1</readonly>
 <presence>0</presence>
 <selected>0</selected>
-<sequence>12</sequence>
+<sequence>5</sequence>
 <maximumlength>100</maximumlength>
 <typeofdata>DT~O</typeofdata>
 <quickcreate>3</quickcreate>
@@ -131,7 +397,7 @@
 <readonly>1</readonly>
 <presence>0</presence>
 <selected>0</selected>
-<sequence>13</sequence>
+<sequence>6</sequence>
 <maximumlength>100</maximumlength>
 <typeofdata>DT~O</typeofdata>
 <quickcreate>3</quickcreate>
@@ -179,17 +445,38 @@
 <setmetrics>false</setmetrics>
 <fields>
 <field>
-<fieldname>moduleclass_no</fieldname>
+<fieldname>catalogoriesgos_no</fieldname>
 <columnindex>0</columnindex>
 </field>
 <field>
-.. All filter fields ..
+<fieldname>refriesgo</fieldname>
+<columnindex>1</columnindex>
+</field>
+<field>
+<fieldname>catriesgo</fieldname>
+<columnindex>2</columnindex>
+</field>
+<field>
+<fieldname>tiporiesgo</fieldname>
+<columnindex>3</columnindex>
+</field>
+<field>
+<fieldname>refamenaza</fieldname>
+<columnindex>4</columnindex>
+</field>
+<field>
+<fieldname>catamenaza</fieldname>
+<columnindex>5</columnindex>
+</field>
+<field>
+<fieldname>tipoamenaza</fieldname>
+<columnindex>6</columnindex>
 </field>
 </fields>
 </customview>
 </customviews>
 <sharingaccess>
-<default>private</default>
+<default>public</default>
 </sharingaccess>
 <actions>
 <action>
@@ -206,6 +493,17 @@
 </action>
 </actions>
 <relatedlists>
+<relatedlist>
+<function>get_attachments</function>
+<label>Documents</label>
+<sequence>3</sequence>
+<presence>0</presence>
+<actions>
+<action>ADD</action>
+<action>SELECT</action>
+</actions>
+<relatedmodule>Documents</relatedmodule>
+</relatedlist>
 </relatedlists>
 <events>
 </events>

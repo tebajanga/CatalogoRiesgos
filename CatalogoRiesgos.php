@@ -10,12 +10,12 @@
 require_once 'data/CRMEntity.php';
 require_once 'data/Tracker.php';
 
-class ModuleClass extends CRMEntity {
+class CatalogoRiesgos extends CRMEntity {
 	public $db;
 	public $log;
 
-	public $table_name = 'vtiger_MODULE_NAME_LOWERCASE';
-	public $table_index= 'MODULE_NAME_LOWERCASEid';
+	public $table_name = 'vtiger_catalogoriesgos';
+	public $table_index= 'MODULE_catalogoriesgosid';
 	public $column_fields = array();
 
 	/** Indicator if this is a custom module or standard module */
@@ -24,7 +24,7 @@ class ModuleClass extends CRMEntity {
 	/**
 	 * Mandatory table for supporting custom fields.
 	 */
-	public $customFieldTable = array('vtiger_MODULE_NAME_LOWERCASEcf', 'MODULE_NAME_LOWERCASEid');
+	public $customFieldTable = array('vtiger_catalogoriesgoscf', 'catalogoriesgosid');
 	// related_tables variable should define the association (relation) between dependent tables
 	// FORMAT: related_tablename => array(related_tablename_column[, base_tablename, base_tablename_column[, related_module]] )
 	// Here base_tablename_column should establish relation with related_tablename_column
@@ -35,15 +35,15 @@ class ModuleClass extends CRMEntity {
 	/**
 	 * Mandatory for Saving, Include tables related to this module.
 	 */
-	public $tab_name = array('vtiger_crmentity', 'vtiger_MODULE_NAME_LOWERCASE', 'vtiger_MODULE_NAME_LOWERCASEcf');
+	public $tab_name = array('vtiger_crmentity', 'vtiger_catalogoriesgos', 'vtiger_catalogoriesgoscf');
 
 	/**
 	 * Mandatory for Saving, Include tablename and tablekey columnname here.
 	 */
 	public $tab_name_index = array(
 		'vtiger_crmentity' => 'crmid',
-		'vtiger_MODULE_NAME_LOWERCASE'   => 'MODULE_NAME_LOWERCASEid',
-		'vtiger_MODULE_NAME_LOWERCASEcf' => 'MODULE_NAME_LOWERCASEid',
+		'vtiger_catalogoriesgos'   => 'catalogoriesgosid',
+		'vtiger_catalogoriesgoscf' => 'catalogoriesgosid',
 	);
 
 	/**
@@ -52,52 +52,74 @@ class ModuleClass extends CRMEntity {
 	public $list_fields = array(
 		/* Format: Field Label => array(tablename => columnname) */
 		// tablename should not have prefix 'vtiger_'
-		'MODULE_NAME_LABEL'=> array('MODULE_NAME_LOWERCASE' => 'MODULE_REFERENCE_FIELD'),
-		'Assigned To' => array('crmentity' => 'smownerid')
+		'Catalogoriesgos No'=> array('catalogoriesgos' => 'catalogoriesgos_no'),
+		'Refriesgo' => array('catalogoriesgos' => 'refriesgo'),
+		'Catriesgo'=> array('catalogoriesgos' => 'catriesgo'),
+		'Tiporiesgo'=> array('catalogoriesgos' => 'tiporiesgo'),
+		'Refamenaza'=> array('catalogoriesgos' => 'refamanaza'),
+		'Catamenaza'=> array('catalogoriesgos' => 'catamenaza'),
+		'Tipoamenaza'=> array('catalogoriesgos' => 'tipoamenaza'),
 	);
 	public $list_fields_name = array(
 		/* Format: Field Label => fieldname */
-		'MODULE_NAME_LABEL'=> 'MODULE_REFERENCE_FIELD',
-		'Assigned To' => 'assigned_user_id'
+		'Catalogoriesgos No'=> 'catalogoriesgos_no',
+		'Refriesgo' => 'refriesgo',
+		'Catriesgo'=> 'catriesgo',
+		'Tiporiesgo'=> 'tiporiesgo',
+		'Refamenaza'=> 'refamanaza',
+		'Catamenaza'=> 'catamenaza',
+		'Tipoamenaza'=> 'tipoamenaza',
 	);
 
 	// Make the field link to detail view from list view (Fieldname)
-	public $list_link_field = 'MODULE_REFERENCE_FIELD';
+	public $list_link_field = 'catalogoriesgos_no';
 
 	// For Popup listview and UI type support
 	public $search_fields = array(
 		/* Format: Field Label => array(tablename => columnname) */
 		// tablename should not have prefix 'vtiger_'
-		'MODULE_NAME_LABEL'=> array('MODULE_NAME_LOWERCASE' => 'MODULE_REFERENCE_FIELD')
+		'Catalogoriesgos No'=> array('catalogoriesgos' => 'catalogoriesgos_no'),
+		'Refriesgo' => array('catalogoriesgos' => 'refriesgo'),
+		'Catriesgo'=> array('catalogoriesgos' => 'catriesgo'),
+		'Tiporiesgo'=> array('catalogoriesgos' => 'tiporiesgo'),
+		'Refamenaza'=> array('catalogoriesgos' => 'refamanaza'),
+		'Catamenaza'=> array('catalogoriesgos' => 'catamenaza'),
+		'Tipoamenaza'=> array('catalogoriesgos' => 'tipoamenaza'),
 	);
 	public $search_fields_name = array(
 		/* Format: Field Label => fieldname */
-		'MODULE_NAME_LABEL Name'=> 'MODULE_REFERENCE_FIELD'
+		'Catalogoriesgos No'=> 'catalogoriesgos_no',
+		'Refriesgo' => 'refriesgo',
+		'Catriesgo'=> 'catriesgo',
+		'Tiporiesgo'=> 'tiporiesgo',
+		'Refamenaza'=> 'refamanaza',
+		'Catamenaza'=> 'catamenaza',
+		'Tipoamenaza'=> 'tipoamenaza',
 	);
 
 	// For Popup window record selection
-	public $popup_fields = array('MODULE_REFERENCE_FIELD');
+	public $popup_fields = array('catalogoriesgos_no', 'refriesgo', 'catriesgo', 'tiporiesgo', 'refamanaza', 'catamenaza', 'tipoamenaza');
 
 	// Placeholder for sort fields - All the fields will be initialized for Sorting through initSortFields
 	public $sortby_fields = array();
 
 	// For Alphabetical search
-	public $def_basicsearch_col = 'MODULE_REFERENCE_FIELD';
+	public $def_basicsearch_col = 'catalogoriesgos_no';
 
 	// Column value to use on detail view record text display
-	public $def_detailview_recname = 'MODULE_REFERENCE_FIELD';
+	public $def_detailview_recname = 'catalogoriesgos_no';
 
 	// Required Information for enabling Import feature
-	public $required_fields = array('MODULE_REFERENCE_FIELD'=>1);
+	public $required_fields = array('catalogoriesgos_no'=>1);
 
 	// Callback function list during Importing
 	public $special_functions = array('set_import_assigned_user');
 
-	public $default_order_by = 'MODULE_REFERENCE_FIELD';
+	public $default_order_by = 'catalogoriesgos_no';
 	public $default_sort_order='ASC';
 	// Used when enabling/disabling the mandatory fields for the module.
 	// Refers to vtiger_field.fieldname values.
-	public $mandatory_fields = array('createdtime', 'modifiedtime', 'MODULE_REFERENCE_FIELD');
+	public $mandatory_fields = array('createdtime', 'modifiedtime', 'catalogoriesgos_no');
 
 	public function save_module($module) {
 		if ($this->HasDirectImageField) {
@@ -113,7 +135,7 @@ class ModuleClass extends CRMEntity {
 	public function vtlib_handler($modulename, $event_type) {
 		if ($event_type == 'module.postinstall') {
 			// TODO Handle post installation actions
-			$this->setModuleSeqNumber('configure', $modulename, $modulename.'-', '0000001');
+			$this->setModuleSeqNumber('configure', $modulename, $modulename.'catrsg-', '0000001');
 		} elseif ($event_type == 'module.disabled') {
 			// TODO Handle actions when this module is disabled.
 		} elseif ($event_type == 'module.enabled') {
