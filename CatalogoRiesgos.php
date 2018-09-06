@@ -15,7 +15,7 @@ class CatalogoRiesgos extends CRMEntity {
 	public $log;
 
 	public $table_name = 'vtiger_catalogoriesgos';
-	public $table_index= 'MODULE_catalogoriesgosid';
+	public $table_index= 'catalogoriesgosid';
 	public $column_fields = array();
 
 	/** Indicator if this is a custom module or standard module */
