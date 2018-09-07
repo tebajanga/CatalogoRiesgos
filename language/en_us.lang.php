@@ -14,7 +14,7 @@ $mod_strings = array(
 	'CatalogoRiesgos ID' => 'CatalogoRiesgos ID',
 
 	'LBL_CUSTOM_INFORMATION' => 'Custom Information',
-	'LBL_MODULEBLOCK_INFORMATION' => 'CatalogoRiesgos Information',
+	'LBL_CATALOGORIESGOS_INFORMATION' => 'CatalogoRiesgos Information',
 	'LBL_DESCRIPTION_INFORMATION' => 'Description',
 
 	'descriesgo' => 'Descriesgo',
